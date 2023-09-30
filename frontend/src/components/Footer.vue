@@ -4,7 +4,7 @@
 
 <template>
     <footer class="footer">
-      <p>&copy; Copyright 2023 Penis</p>
+      <p>&copy; Copyright 2023 StudleSTEM</p>
     </footer>
 </template>
 
