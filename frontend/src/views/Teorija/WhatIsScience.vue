@@ -1,9 +1,8 @@
 <template>
     <div class="main">
-        <h1>What is science?</h1>
         <div class="text-container">
-            <h2>Science</h2>
-            <p>is a rigorous, systematic endeavor that builds and organizes knowledge in the form of testable explanations and predictions about the world.</p>
+            <h2>What is science?</h2>
+            <p>Science is a rigorous, systematic endeavor that builds and organizes knowledge in the form of testable explanations and predictions about the world.</p>
             <div class="button-container">
                 <router-link to="/scienceteorija"><button>Return</button></router-link>
             </div>
@@ -26,8 +25,8 @@
         display: flex;
     }
     .text-container{
-        width: 100rem;
-        height: 32rem;
+        width: 80vw;
+        height: 70vh;
         background-color: var(--secondary-color);
         position: absolute;
         top:10rem;
@@ -45,12 +44,46 @@
         border-radius: 25px;
         color: white;
         transition: 0.1s; 
-        top: 28rem;
     }
     
     button:hover{
         transform: scale(1.1);
       }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            button{
+                top:26rem ;
+            }
+        }
+          
+        /* Media Query for low resolution  Tablets, Ipads */
+        @media (min-width: 481px) and (max-width: 767px) {
+            button{
+                top:28rem;
+            }
+        }
+          
+        /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1024px){
+            button{
+                top: 30rem ;
+            }
+        }
+          
+        /* Media Query for Laptops and Desktops */
+        @media (min-width: 1025px) and (max-width: 1280px){
+            button{
+                top: 36rem ;
+            }
+        }
+          
+        /* Media Query for Large screens */
+        @media (min-width: 1281px) {
+            button{
+                top: 38rem;
+            }
+        }
     
     </style>
     

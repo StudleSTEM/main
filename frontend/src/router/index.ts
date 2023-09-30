@@ -24,9 +24,8 @@ import WhatIsTechnology from '@/views/Teorija/WhatIsTechnology.vue';
 import TechnologyImpact from '@/views/Teorija/TechnologyImpact.vue';
 
 
-
-
 import ElectricScheme from '../views/Tasks/Electric/Electric_Scheme.vue';
+import SnakeGame from '../views/Tasks/Electric/SnakeGame.vue';
 
 const routes = [
   {
@@ -80,6 +79,11 @@ const routes = [
         path: '/uzdevumi/electricscheme',
         name: 'electricscheme',
         component: ElectricScheme
+      },
+      {
+        path: '/uzdevumi/electricscheme/reward',
+        name: 'snakegame',
+        component: SnakeGame
       },
       { 
         path: '/classroom',
