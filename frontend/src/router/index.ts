@@ -14,6 +14,14 @@ import ScienceT from '../views/Teorija/Science.vue';
 import MathT from '../views/Teorija/Math.vue';
 import EngeneeringT from '../views/Teorija/Engineering.vue';
 import TechnologyT from '../views/Teorija/Technology.vue';
+import HistoryOfEnVue from '@/views/Teorija/HistoryOfEn.vue';
+import TypesOfEnVue from '@/views/Teorija/TypesOfEn.vue';
+import WhatIsScience from '@/views/Teorija/WhatIsScience.vue';
+import ScientificResearch from '@/views/Teorija/ScientificResearch.vue';
+import Division from '@/views/Teorija/Division.vue';
+import PythagorasTheory from '@/views/Teorija/PythagorasTheory.vue';
+import WhatIsTechnology from '@/views/Teorija/WhatIsTechnology.vue';
+import TechnologyImpact from '@/views/Teorija/TechnologyImpact.vue';
 
 
 
@@ -98,7 +106,47 @@ const routes = [
         path: '/technologyteorija',
         name: 'technologyteorija',
         component: TechnologyT
-      }
+      },
+      {
+        path: '/history-of-engineering',
+        name: 'history-of-engineering',
+        component: HistoryOfEnVue
+      },
+      {
+        path: '/types-of-engineering',
+        name: 'types-of-engingeering',
+        component: TypesOfEnVue
+      },
+      {
+        path:'/what-is-science',
+        name:'what-is-science',
+        component: WhatIsScience
+      },
+      {
+        path:'/scientific-research',
+        name:'scientific-research',
+        component: ScientificResearch
+      },
+      {
+        path: '/division',
+        name: 'division',
+        component: Division
+      },
+      {
+        path: '/pythagoras-theory',
+        name: 'pythagoras-theory',
+        component: PythagorasTheory
+      },
+      {
+        path:'/what-is-technology',
+        name: 'what-is-technology',
+        component: WhatIsTechnology
+      },
+      {
+        path: '/technology-impact',
+        name: 'technology-impact',
+        component: TechnologyImpact
+      },
     ],
   },
 ]
