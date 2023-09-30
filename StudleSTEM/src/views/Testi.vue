@@ -11,6 +11,6 @@ import NavBar from '../components/NavBar.vue';
 
 <style scoped>
   #main{
-    margin-top: 4rem;
+    margin-top: 6rem;
   }
 </style>
