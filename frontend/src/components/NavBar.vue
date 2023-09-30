@@ -22,7 +22,7 @@
         top: 0;
 
         display: flex;
-        justify-content: left;
+        justify-content: center;
         align-items: center;
         background: var(--secondary-color);
 
