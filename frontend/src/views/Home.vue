@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div id="main">
     <h1>Home</h1>
     <div class="buttons-container">
@@ -32,7 +31,6 @@
 </template>
 
 <script lang="ts" setup>
-  import NavBar from '../components/NavBar.vue';
 </script>
 
 <style scoped>
