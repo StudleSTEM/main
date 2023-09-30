@@ -1,10 +1,6 @@
-<script lang="ts">
-
-</script>
 
 <template>
 <main>
-    <NavBar/>
     <div class="container">
         <div class="header-container">
             <h1>Engeneering Theory</h1>

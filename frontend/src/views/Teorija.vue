@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
      <div class="card-container">
          <div class="card science">
           <h2>Science</h2>
@@ -28,15 +27,6 @@
      </div>
  </template>
  
- <script lang="ts">
- import NavBar from '../components/NavBar.vue';
-  export default{
-     components:{
-      NavBar,
-    }
-}
- 
- </script>
  
  <style scoped>
 
