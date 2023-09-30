@@ -16,9 +16,8 @@ import EngeneeringT from '../views/Teorija/Engineering.vue';
 import TechnologyT from '../views/Teorija/Technology.vue';
 
 
-
-
 import ElectricScheme from '../views/Tasks/Electric/Electric_Scheme.vue';
+import SnakeGame from '../views/Tasks/Electric/SnakeGame.vue';
 
 const routes = [
   {
@@ -72,6 +71,11 @@ const routes = [
         path: '/uzdevumi/electricscheme',
         name: 'electricscheme',
         component: ElectricScheme
+      },
+      {
+        path: '/uzdevumi/electricscheme/reward',
+        name: 'snakegame',
+        component: SnakeGame
       },
       { 
         path: '/classroom',

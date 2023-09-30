@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "v-drag": "^3.0.9",
     "vue": "^3.3.4"
   }
 }
