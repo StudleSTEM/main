@@ -93,6 +93,8 @@ export default {
 
 <style scoped>
 .profile {
+  margin-top: 250px;
+
   display: flex;
   align-items: flex-start;
   padding: 20px;
