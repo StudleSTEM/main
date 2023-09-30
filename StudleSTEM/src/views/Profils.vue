@@ -1,51 +1,22 @@
 <template>
-   <NavBar />
+  <NavBar />
   <div>
     <div id="main">
       <div class="profile-container">
         <div class="profile-info">
-          <img
-            v-if="!isEditing"
-            src="https://placekitten.com/200/200"
-            alt="Profile Image"
-            class="profile-image"
-          />
+          <div class="profile-image-container">
+            <img
+              v-if="!isEditing"
+              src="https://placekitten.com/200/200"
+              alt="Profile Image"
+              class="profile-image"
+            />
+          </div>
           <div class="profile-details">
             <h1 v-if="!isEditing">{{ editedName }}</h1>
-            <input
-              v-if="isEditing"
-              v-model="editedName"
-              placeholder="Enter your name"
-              class="edit-input"
-            />
             <p v-if="!isEditing">Email: {{ editedEmail }}</p>
-            <input
-              v-if="isEditing"
-              v-model="editedEmail"
-              placeholder="Enter your email"
-              class="edit-input"
-            />
-            <p v-if="!isEditing">Location: {{ editedLocation }}</p>
-            <input
-              v-if="isEditing"
-              v-model="editedLocation"
-              placeholder="Enter your location"
-              class="edit-input"
-            />
             <p v-if="!isEditing">Interests: {{ editedInterests }}</p>
-            <textarea
-              v-if="isEditing"
-              v-model="editedInterests"
-              placeholder="Enter your interests"
-              class="edit-input"
-            ></textarea>
-            <p v-if="!isEditing">Bio: {{ editedBio }}</p>
-            <textarea
-              v-if="isEditing"
-              v-model="editedBio"
-              placeholder="Enter your bio"
-              class="edit-input"
-            ></textarea>
+            <!-- Add other details here -->
           </div>
         </div>
         <div class="button-container">
@@ -104,6 +75,11 @@ export default {
   align-items: center;
 }
 
+.profile-image-container {
+  display: inline-block;
+  margin-right: 20px; /* Adjust as needed */
+}
+
 .profile-image {
   border-radius: 50%;
   object-fit: cover;
@@ -159,5 +135,4 @@ export default {
   padding: 10px;
   margin-bottom: 10px;
 }
-
 </style>
