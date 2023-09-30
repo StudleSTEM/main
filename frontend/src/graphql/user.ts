@@ -11,6 +11,11 @@ export const GET_USER = gql`
       school
       score
       avatarUrl
+      achievments {
+        id
+        title
+        description
+      }
     }
   }
 `;
