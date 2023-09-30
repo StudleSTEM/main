@@ -38,7 +38,5 @@ export default {
 </script>
 
 <style>
-   main {
-      margin-top: 200px;
-   }
+  
 </style>
