@@ -8,6 +8,7 @@ import Uzdevumi from '../views/Uzdevumi.vue';
 import Testi from '../views/Testi.vue';
 import Profils from '../views/Profils.vue';
 import About from '../views/About.vue';
+import Classroom from '../views/Classroom.vue';
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About
+      },
+      {
+        path: '/classroom',
+        name: 'classroom',
+        component: Classroom
       }
 
     ],
