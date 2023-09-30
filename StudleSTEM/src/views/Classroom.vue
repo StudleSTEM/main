@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(student, index) in students" :key="student.name" :class="{ 'top-student': index < 3 }">
+          <tr v-for="(student, index) in sortedStudents" :key="student.name" :class="{ 'top-student': index < 3 }">
             <td>{{ index + 1 }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.points }}</td>
@@ -26,7 +26,7 @@
     data() {
       return {
         students: [
-          { name: 'Anonīms', points: 836 },
+        { name: 'Anonīms', points: 836 },
           { name: 'Anonīms', points: 836 },
             { name: 'Kristaps Ešmits', points: 624 },
             { name: 'Vladislavs Šušpanovs', points: 470 },
@@ -49,10 +49,14 @@
             { name: 'Anonīms', points: 23 }
         ]
       };
+    },
+    computed: {
+      sortedStudents() {
+        return this.students.slice().sort((a, b) => b.points - a.points);
+      }
     }
   };
   </script>
-  
   
   <style scoped>
   body {
