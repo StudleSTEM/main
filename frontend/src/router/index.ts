@@ -25,7 +25,7 @@ import TechnologyImpact from "@/views/Teorija/TechnologyImpact.vue";
 
 import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
 import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
-import { REFRESH } from "../graphql/user";
+import { REFRESH, GET_ME } from "../graphql/user";
 import { provideApolloClient, useMutation } from "@vue/apollo-composable";
 import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 
@@ -65,16 +65,24 @@ async function isLoggedIn() {
         );
         return true;
       } catch (error) {
-        console.error(`Err ${error}`);
         return false;
       }
     } else {
       console.log(1);
       return false;
     }
+  } else {
+    const { mutate: me } = useMutation(GET_ME);
+    try {
+      await me({
+        accessToken: token,
+      });
+      return true;
+    } catch (error) {
+      console.error(`${error}`);
+      return false;
+    }
   }
-
-  return true;
 }
 
 const routes = [
