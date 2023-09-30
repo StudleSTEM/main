@@ -9,6 +9,9 @@ import Testi from '../views/Testi.vue';
 import Profils from '../views/Profils.vue';
 import About from '../views/About.vue';
 
+
+import ElectricScheme from '../views/Tasks/Electric/Electric_Scheme.vue';
+
 const routes = [
   {
     path: '/',
@@ -56,6 +59,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About
+      },
+      {
+        path: '/uzdevumi/electricscheme',
+        name: 'electricscheme',
+        component: ElectricScheme
       }
 
     ],
