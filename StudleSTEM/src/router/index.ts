@@ -8,6 +8,7 @@ import Uzdevumi from '../views/Uzdevumi.vue';
 import Testi from '../views/Testi.vue';
 import Profils from '../views/Profils.vue';
 import About from '../views/About.vue';
+import Classroom from '../views/Classroom.vue';
 
 import ScienceT from '../views/Teorija/Science.vue';
 import MathT from '../views/Teorija/Math.vue';
@@ -63,6 +64,13 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About
+      },
+      {
+        path: '/classroom',
+        name: 'classroom',
+        component: Classroom
+      }
+
       },
 
       {

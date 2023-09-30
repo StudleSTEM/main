@@ -1,16 +1,163 @@
-<script lang="ts" setup>
-  import NavBar from '../components/NavBar.vue';
-</script>
-
 <template>
-  <NavBar/>
+   <NavBar />
+  <div>
     <div id="main">
-      <h1>Profils</h1>
+      <div class="profile-container">
+        <div class="profile-info">
+          <img
+            v-if="!isEditing"
+            src="https://placekitten.com/200/200"
+            alt="Profile Image"
+            class="profile-image"
+          />
+          <div class="profile-details">
+            <h1 v-if="!isEditing">{{ editedName }}</h1>
+            <input
+              v-if="isEditing"
+              v-model="editedName"
+              placeholder="Enter your name"
+              class="edit-input"
+            />
+            <p v-if="!isEditing">Email: {{ editedEmail }}</p>
+            <input
+              v-if="isEditing"
+              v-model="editedEmail"
+              placeholder="Enter your email"
+              class="edit-input"
+            />
+            <p v-if="!isEditing">Location: {{ editedLocation }}</p>
+            <input
+              v-if="isEditing"
+              v-model="editedLocation"
+              placeholder="Enter your location"
+              class="edit-input"
+            />
+            <p v-if="!isEditing">Interests: {{ editedInterests }}</p>
+            <textarea
+              v-if="isEditing"
+              v-model="editedInterests"
+              placeholder="Enter your interests"
+              class="edit-input"
+            ></textarea>
+            <p v-if="!isEditing">Bio: {{ editedBio }}</p>
+            <textarea
+              v-if="isEditing"
+              v-model="editedBio"
+              placeholder="Enter your bio"
+              class="edit-input"
+            ></textarea>
+          </div>
+        </div>
+        <div class="button-container">
+          <button @click="toggleEditing" class="edit-button">
+            {{ isEditing ? 'Save' : 'Edit' }}
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
-<style scoped>
-  #main{
-    margin-top: 6rem;
+<script>
+export default {
+  data() {
+    return {
+      isEditing: false,
+      editedName: 'John Doe',
+      editedEmail: 'john.doe@example.com',
+      editedLocation: 'New York, USA',
+      editedInterests: 'Web Development, Design, Music',
+      editedBio:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere varius urna vitae suscipit.'
+    };
+  },
+  methods: {
+    toggleEditing() {
+      this.isEditing = !this.isEditing;
+    }
   }
+};
+</script>
+
+<style scoped>
+#main {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  align-items: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-details {
+  padding: 0 20px;
+  text-align: left;
+}
+
+.profile-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.profile-details p {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #555555;
+}
+
+.profile-details textarea {
+  width: 100%;
+  height: 80px;
+  padding: 5px;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.edit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 </style>
