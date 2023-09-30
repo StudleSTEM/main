@@ -1,164 +1,185 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
-import login from '../views/login.vue'
-import register from '../views/register.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import login from "../views/login.vue";
+import register from "../views/register.vue";
 
-import Teorija from '../views/Teorija.vue';
-import Uzdevumi from '../views/Uzdevumi.vue';
-import Testi from '../views/Testi.vue';
-import Profils from '../views/Profils.vue';
-import About from '../views/About.vue';
-import Classroom from '../views/Classroom.vue';
+import Teorija from "../views/Teorija.vue";
+import Uzdevumi from "../views/Uzdevumi.vue";
+import Testi from "../views/Testi.vue";
+import Profils from "../views/Profils.vue";
+import About from "../views/About.vue";
+import Classroom from "../views/Classroom.vue";
 
-import ScienceT from '../views/Teorija/Science.vue';
-import MathT from '../views/Teorija/Math.vue';
-import EngeneeringT from '../views/Teorija/Engineering.vue';
-import TechnologyT from '../views/Teorija/Technology.vue';
-import HistoryOfEnVue from '@/views/Teorija/HistoryOfEn.vue';
-import TypesOfEnVue from '@/views/Teorija/TypesOfEn.vue';
-import WhatIsScience from '@/views/Teorija/WhatIsScience.vue';
-import ScientificResearch from '@/views/Teorija/ScientificResearch.vue';
-import Division from '@/views/Teorija/Division.vue';
-import PythagorasTheory from '@/views/Teorija/PythagorasTheory.vue';
-import WhatIsTechnology from '@/views/Teorija/WhatIsTechnology.vue';
-import TechnologyImpact from '@/views/Teorija/TechnologyImpact.vue';
+import ScienceT from "../views/Teorija/Science.vue";
+import MathT from "../views/Teorija/Math.vue";
+import EngeneeringT from "../views/Teorija/Engineering.vue";
+import TechnologyT from "../views/Teorija/Technology.vue";
+import HistoryOfEnVue from "@/views/Teorija/HistoryOfEn.vue";
+import TypesOfEnVue from "@/views/Teorija/TypesOfEn.vue";
+import WhatIsScience from "@/views/Teorija/WhatIsScience.vue";
+import ScientificResearch from "@/views/Teorija/ScientificResearch.vue";
+import Division from "@/views/Teorija/Division.vue";
+import PythagorasTheory from "@/views/Teorija/PythagorasTheory.vue";
+import WhatIsTechnology from "@/views/Teorija/WhatIsTechnology.vue";
+import TechnologyImpact from "@/views/Teorija/TechnologyImpact.vue";
 
+import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
+import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
 
-import ElectricScheme from '../views/Tasks/Electric/Electric_Scheme.vue';
-import SnakeGame from '../views/Tasks/Electric/SnakeGame.vue';
+function isLoggedIn() {
+  console.log("aa");
+  const token = localStorage.getItem("access_token");
+
+  // If the token exists return true, else return false
+  return token ? true : false;
+}
 
 const routes = [
   {
-    path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    path: "/",
+    component: () => import("@/layouts/default/Default.vue"),
     children: [
       {
-        path: '/',
-        name: 'Home',
+        path: "/",
+        name: "Home",
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+        component: () =>
+          import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
       },
       {
-        path: '/teorija',
-        name: 'teorija',
+        path: "/teorija",
+        name: "teorija",
         component: Teorija,
+        beforeEnter: (to: any, from: any, next: any) => {
+          if (isLoggedIn()) {
+            next("/login");
+          } else {
+            next();
+          }
+        },
       },
       {
-        path: '/uzdevumi',
-        name: 'uzdevumi',
+        path: "/uzdevumi",
+        name: "uzdevumi",
         component: Uzdevumi,
       },
       {
-        path: '/testi',
-        name: 'testi',
+        path: "/testi",
+        name: "testi",
         component: Testi,
       },
       {
-        path: '/profils',
-        name: 'profils',
+        path: "/profils",
+        name: "profils",
         component: Profils,
+        beforeEnter: (to: any, from: any, next: any) => {
+          if (isLoggedIn()) {
+            next("/login");
+          } else {
+            next();
+          }
+        },
       },
       {
         path: "/login",
         name: "login",
-        component:  login
+        component: login,
       },
       {
         path: "/register",
         name: "register",
-        component:  register
+        component: register,
       },
       {
-        path: '/about',
-        name: 'about',
-        component: About
+        path: "/about",
+        name: "about",
+        component: About,
       },
       {
-        path: '/uzdevumi/electricscheme',
-        name: 'electricscheme',
-        component: ElectricScheme
+        path: "/uzdevumi/electricscheme",
+        name: "electricscheme",
+        component: ElectricScheme,
       },
       {
-        path: '/uzdevumi/electricscheme/reward',
-        name: 'snakegame',
-        component: SnakeGame
-      },
-      { 
-        path: '/classroom',
-        name: 'classroom',
-        component: Classroom
+        path: "/uzdevumi/electricscheme/reward",
+        name: "snakegame",
+        component: SnakeGame,
       },
       {
-        path: '/scienceteorija',
-        name: 'scienceteorija',
-        component: ScienceT
+        path: "/classroom",
+        name: "classroom",
+        component: Classroom,
+      },
+      {
+        path: "/scienceteorija",
+        name: "scienceteorija",
+        component: ScienceT,
       },
 
       {
-        path: '/mathematicsteorija',
-        name: 'mathematicsteorija',
-        component: MathT
+        path: "/mathematicsteorija",
+        name: "mathematicsteorija",
+        component: MathT,
       },
       {
-        path: '/engeneeringteorija',
-        name: 'engeneeringteorija',
-        component: EngeneeringT
+        path: "/engeneeringteorija",
+        name: "engeneeringteorija",
+        component: EngeneeringT,
       },
       {
-        path: '/technologyteorija',
-        name: 'technologyteorija',
-        component: TechnologyT
+        path: "/technologyteorija",
+        name: "technologyteorija",
+        component: TechnologyT,
       },
       {
-        path: '/history-of-engineering',
-        name: 'history-of-engineering',
-        component: HistoryOfEnVue
+        path: "/history-of-engineering",
+        name: "history-of-engineering",
+        component: HistoryOfEnVue,
       },
       {
-        path: '/types-of-engineering',
-        name: 'types-of-engingeering',
-        component: TypesOfEnVue
+        path: "/types-of-engineering",
+        name: "types-of-engingeering",
+        component: TypesOfEnVue,
       },
       {
-        path:'/what-is-science',
-        name:'what-is-science',
-        component: WhatIsScience
+        path: "/what-is-science",
+        name: "what-is-science",
+        component: WhatIsScience,
       },
       {
-        path:'/scientific-research',
-        name:'scientific-research',
-        component: ScientificResearch
+        path: "/scientific-research",
+        name: "scientific-research",
+        component: ScientificResearch,
       },
       {
-        path: '/division',
-        name: 'division',
-        component: Division
+        path: "/division",
+        name: "division",
+        component: Division,
       },
       {
-        path: '/pythagoras-theory',
-        name: 'pythagoras-theory',
-        component: PythagorasTheory
+        path: "/pythagoras-theory",
+        name: "pythagoras-theory",
+        component: PythagorasTheory,
       },
       {
-        path:'/what-is-technology',
-        name: 'what-is-technology',
-        component: WhatIsTechnology
+        path: "/what-is-technology",
+        name: "what-is-technology",
+        component: WhatIsTechnology,
       },
       {
-        path: '/technology-impact',
-        name: 'technology-impact',
-        component: TechnologyImpact
+        path: "/technology-impact",
+        name: "technology-impact",
+        component: TechnologyImpact,
       },
     ],
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-})
+});
 
-
-export default router
+export default router;
