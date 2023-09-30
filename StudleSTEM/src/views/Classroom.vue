@@ -1,14 +1,6 @@
 <template>
     <div class="container">
-      <h1 class="heading">Statistika</h1>
-  
-      <div class="filter-container">
-        <label for="nameFilter">Filter by Name:</label>
-        <input type="text" v-model="nameFilter" id="nameFilter" placeholder="Enter name">
-  
-        <label for="pointsFilter">Filter by Points:</label>
-        <input type="number" v-model="pointsFilter" id="pointsFilter" placeholder="Enter points">
-      </div>
+      <h1 class="heading">Classroom</h1>
   
       <table class="table">
         <thead>
@@ -19,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(student, index) in filteredStudents" :key="student.name" :class="{ 'top-student': index < 3 }">
+          <tr v-for="(student, index) in students" :key="student.name" :class="{ 'top-student': index < 3 }">
             <td>{{ index + 1 }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.points }}</td>
@@ -34,7 +26,8 @@
     data() {
       return {
         students: [
-            { name: 'Anonīms', points: 836 },
+          { name: 'Anonīms', points: 836 },
+          { name: 'Anonīms', points: 836 },
             { name: 'Kristaps Ešmits', points: 624 },
             { name: 'Vladislavs Šušpanovs', points: 470 },
             { name: 'Anonīms', points: 836 },
@@ -54,32 +47,13 @@
             { name: 'Anonīms', points: 34 },
             { name: 'Arnolds Bērziņš', points: 32 },
             { name: 'Anonīms', points: 23 }
-        ],
-        nameFilter: '',    // Initialize the filters
-        pointsFilter: null
+        ]
       };
-    },
-    computed: {
-      filteredStudents() {
-        let filteredStudents = this.students;
-  
-        // Apply name filter
-        if (this.nameFilter) {
-          filteredStudents = filteredStudents.filter(student =>
-            student.name.toLowerCase().includes(this.nameFilter.toLowerCase())
-          );
-        }
-  
-        // Apply points filter
-        if (this.pointsFilter !== null) {
-          filteredStudents = filteredStudents.filter(student => student.points >= this.pointsFilter);
-        }
-  
-        return filteredStudents;
-      }
     }
   };
   </script>
+  
+  
   <style scoped>
   body {
     font-family: Arial, sans-serif;
