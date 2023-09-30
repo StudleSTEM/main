@@ -52,7 +52,7 @@ export default {
         localStorage.setItem("access_token", data.login.accessToken);
         localStorage.setItem("refresh_token", data.login.refreshToken);
 
-        router.push('/');
+        router.push('/teorija');
         console.log(data);
       });
     }
