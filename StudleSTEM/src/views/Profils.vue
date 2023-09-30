@@ -1,11 +1,16 @@
 <script lang="ts" setup>
-  //
+  import NavBar from '../components/NavBar.vue';
 </script>
 
 <template>
-    <h1>Profils</h1>
+  <NavBar/>
+    <div id="main">
+      <h1>Profils</h1>
+    </div>
 </template>
 
 <style scoped>
-
+  #main{
+    margin-top: 4rem;
+  }
 </style>
