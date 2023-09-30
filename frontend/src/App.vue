@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <router-view />
+  <router-view class="klas" />
   <Footer />
 </template>
 
@@ -12,4 +12,10 @@
 
 <style lang="scss">
 @import 'styles/styles.scss';
+
+.klas {
+  margin-top: 3rem;
+}
+
+
 </style>
