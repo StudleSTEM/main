@@ -4,13 +4,12 @@
 
 <template>
     <div id="container">
-        <div id="buttons-container">
-            <router-link to="/teorija" id="button" class="weight-regular height-regular">Teorija</router-link>
-            <router-link to="/uzdevumi" id="button" class="weight-regular height-regular">Uzdevumi</router-link>
-            <router-link to="/testi" id="button" class="weight-regular height-regular">Testi</router-link>
-            <router-link to="/profils" id="button" class="weight-regular height-regular">Profils</router-link>
-        </div>
+        <router-link to="/teorija" id="button" class="weight-regular height-regular">Teorija</router-link>
+        <router-link to="/uzdevumi" id="button" class="weight-regular height-regular">Uzdevumi</router-link>
+        <router-link to="/testi" id="button" class="weight-regular height-regular">Testi</router-link>
+        <router-link to="/profils" id="button" class="weight-regular height-regular">Profils</router-link>
     </div>
+    
 </template>
 
 <style scoped>
