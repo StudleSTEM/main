@@ -7,15 +7,29 @@
 // Components
 import App from './App.vue'
 import router from './router'
+import { DefaultApolloClient } from "@vue/apollo-composable";
+import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 
 // Composables
-import { createApp } from 'vue'
+import { createApp, provide, h } from "vue";
 
 // Plugins
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from "@/plugins";
 
+const cache = new InMemoryCache();
 
-const app = createApp(App)
+const apolloClient = new ApolloClient({
+  cache,
+  uri: "http://localhost:8000",
+});
+
+const app = createApp({
+  setup() {
+    provide(DefaultApolloClient, apolloClient);
+  },
+
+  render: () => h(App),
+});
 
 registerPlugins(app)
 
