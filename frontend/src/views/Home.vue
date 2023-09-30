@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: flex-start;
   
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 1), 0px 2px 100px rgba(0, 0, 0, 1);
 
   background-color: var(--background-color);
 }
@@ -75,6 +75,7 @@ h1 {
   width: 100vw;
   border-radius: 0;
   border: none;
+  box-shadow: none;
 }
 
 .container {
