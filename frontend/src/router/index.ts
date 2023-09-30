@@ -25,13 +25,56 @@ import TechnologyImpact from "@/views/Teorija/TechnologyImpact.vue";
 
 import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
 import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
+import { REFRESH } from "../graphql/user";
+import { provideApolloClient, useMutation } from "@vue/apollo-composable";
+import { ApolloClient, InMemoryCache } from "@apollo/client/core";
 
-function isLoggedIn() {
-  console.log("aa");
+async function isLoggedIn() {
+  const cache = new InMemoryCache();
+
+  const apolloClient = new ApolloClient({
+    cache,
+    uri: "http://localhost:8000",
+  });
+
+  provideApolloClient(apolloClient);
+
   const token = localStorage.getItem("access_token");
 
-  // If the token exists return true, else return false
-  return token ? true : false;
+  const access_token_exist = token ? true : false;
+
+  console.log(access_token_exist);
+
+  if (!access_token_exist) {
+    const token2 = localStorage.getItem("refresh_token");
+
+    const refresh_token_exist = token2 ? true : false;
+
+    console.log(refresh_token_exist);
+
+    if (refresh_token_exist) {
+      const { mutate: refresh } = useMutation(REFRESH);
+      try {
+        const result = await refresh({
+          refreshToken: token2,
+        });
+        localStorage.setItem("access_token", result?.data.refresh.refreshToken);
+        localStorage.setItem(
+          "refresh_token",
+          result?.data.refresh.refreshToken
+        );
+        return true;
+      } catch (error) {
+        console.error(`Err ${error}`);
+        return false;
+      }
+    } else {
+      console.log(1);
+      return false;
+    }
+  }
+
+  return true;
 }
 
 const routes = [
@@ -52,11 +95,11 @@ const routes = [
         path: "/teorija",
         name: "teorija",
         component: Teorija,
-        beforeEnter: (to: any, from: any, next: any) => {
-          if (isLoggedIn()) {
-            next("/login");
-          } else {
+        beforeEnter: async (to: any, from: any, next: any) => {
+          if (await isLoggedIn()) {
             next();
+          } else {
+            next("/login");
           }
         },
       },
@@ -74,11 +117,13 @@ const routes = [
         path: "/profils",
         name: "profils",
         component: Profils,
-        beforeEnter: (to: any, from: any, next: any) => {
-          if (isLoggedIn()) {
-            next("/login");
-          } else {
+        beforeEnter: async (to: any, from: any, next: any) => {
+          if (await isLoggedIn()) {
+            console.log(1);
             next();
+          } else {
+            console.log(2);
+            next("/login");
           }
         },
       },

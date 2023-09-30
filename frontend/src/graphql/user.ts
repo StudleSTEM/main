@@ -11,6 +11,15 @@ export const GET_USER = gql`
   }
 `;
 
+export const REFRESH = gql`
+  mutation refresh($refreshToken: String!) {
+    refresh(refreshToken: $refreshToken) {
+      accessToken
+      refreshToken
+    }
+  }
+`;
+
 export const REGISTER = gql`
   mutation Register(
     $email: String!

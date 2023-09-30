@@ -8,6 +8,6 @@
 
 <style scoped>
   #main{
-    margin-top: 6rem;
+    margin-top: 10rem;
   }
 </style>

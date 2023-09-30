@@ -87,7 +87,7 @@ export default {
       
 
       console.log(result);
-      router.push('/');
+      router.push('/login');
     }
     return { register, email, username, password, role, name, lastname, school, klasse };
   }
