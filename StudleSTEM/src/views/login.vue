@@ -12,7 +12,7 @@
         <input type="password" id="password" v-model="password" class="login-input" />
         <button type="submit" class="login-button">Login</button>
       </form>
-      <button @click="goToRegister" class="register-button">Register</button>
+      <button @click="goToRegister" class="register-button">Register instead</button>
     </div>
   </div>
 </template>
