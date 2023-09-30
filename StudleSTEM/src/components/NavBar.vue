@@ -25,6 +25,8 @@
         justify-content: left;
         align-items: center;
         background: var(--secondary-color);
+
+        z-index: 1000;
         
     }
 
