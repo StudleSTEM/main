@@ -206,6 +206,8 @@
          align-content: center;
          flex-direction: row;
          top: 10rem;
+         left: 0rem;
+         position: relative;
      }
      .card{
          width: 20rem;
