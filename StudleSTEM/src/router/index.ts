@@ -1,5 +1,7 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import login from '../views/login.vue'
+import register from '../views/register.vue'
 
 const routes = [
   {
@@ -14,6 +16,16 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
       },
+      {
+        path: "/login",
+        name: "login",
+        component:  login
+      },
+      {
+        path: "/register",
+        name: "register",
+        component:  register
+      }
     ],
   },
 ]
