@@ -9,6 +9,13 @@ import Testi from '../views/Testi.vue';
 import Profils from '../views/Profils.vue';
 import About from '../views/About.vue';
 
+import ScienceT from '../views/Teorija/Science.vue';
+import MathT from '../views/Teorija/Math.vue';
+import EngeneeringT from '../views/Teorija/Engineering.vue';
+import TechnologyT from '../views/Teorija/Technology.vue';
+
+
+
 const routes = [
   {
     path: '/',
@@ -56,8 +63,29 @@ const routes = [
         path: '/about',
         name: 'about',
         component: About
-      }
+      },
 
+      {
+        path: '/scienceteorija',
+        name: 'scienceteorija',
+        component: ScienceT
+      },
+
+      {
+        path: '/mathematicsteorija',
+        name: 'mathematicsteorija',
+        component: MathT
+      },
+      {
+        path: '/engeneeringteorija',
+        name: 'engeneeringteorija',
+        component: EngeneeringT
+      },
+      {
+        path: '/technologyteorija',
+        name: 'technologyteorija',
+        component: TechnologyT
+      }
     ],
   },
 ]
