@@ -32,9 +32,6 @@
         </form>
         <button @click="goToLogin" class="loginn-button">Login instead</button>
       </div>
-      <footer class="footer">
-      <p>&copy; Copyright 2023 Penis</p>
-    </footer>
     </div>
   </template>
   
@@ -68,15 +65,6 @@
   </script>
   
   <style scoped>
-  .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: #f9f9f9;
-  padding: 10px 0;
-  color: #173744;
-}
 
 .footer p {
   font-size: 14px;

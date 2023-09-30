@@ -4,10 +4,10 @@
 
 <template>
     <div id="container">
-        <router-link to="/teorija" id="button" class="weight-regular height-regular">Teorija</router-link>
-        <router-link to="/uzdevumi" id="button" class="weight-regular height-regular">Uzdevumi</router-link>
-        <router-link to="/testi" id="button" class="weight-regular height-regular">Testi</router-link>
-        <router-link to="/profils" id="button" class="weight-regular height-regular">Profils</router-link>
+        <router-link to="/teorija" id="button" class="weight-regular height-regular">Theory</router-link>
+        <router-link to="/uzdevumi" id="button" class="weight-regular height-regular">Tasks</router-link>
+        <router-link to="/testi" id="button" class="weight-regular height-regular">Tests</router-link>
+        <router-link to="/profils" id="button" class="weight-regular height-regular">Profile</router-link>
     </div>
     
 </template>
@@ -26,17 +26,6 @@
         align-items: center;
         background: var(--secondary-color);
         
-    }
-
-    #buttons-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        height: 10vh;
-        width: 50vw;
-        min-width: 10rem;
-
     }
 
     #button{
