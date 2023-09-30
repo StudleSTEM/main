@@ -6,11 +6,11 @@
     <div class="login-container">
       <h2 class="login-heading">Login</h2>
       <form @submit.prevent="login" class="login-form">
-        <label for="username" class="login-label">Username:</label>
-        <input type="text" id="username" v-model="username" class="login-input" />
+        <label for="email" class="login-label">email:</label>
+        <input type="text" id="email" v-model="email" class="login-input" />
         <label for="password" class="login-label">Password:</label>
         <input type="password" id="password" v-model="password" class="login-input" />
-        <button type="submit" class="login-button">Login</button>
+        <button type="submit" class="login-button" @click="login()">Login</button>
       </form>
       <button @click="goToRegister" class="register-button">Register instead</button>
     </div>
@@ -19,22 +19,47 @@
 </template>
 
 <script>
+
+
+import { LOGIN } from '../graphql/user';
+import { useMutation } from '@vue/apollo-composable'
+import { ref } from 'vue';
+import { useRouter } from 'vue-router'
+
 export default {
-  data() {
-    return {
-      username: '',
-      password: ''
-    };
-  },
   methods: {
-    login() {
-      console.log('Logged in:', this.username);
-    },
     goToRegister() {
       this.$router.push('/register');
     }
+  },
+  setup() {
+    const email = ref('');
+    const password = ref('');
+    const router = useRouter();
+    const { mutate: loginMutation } = useMutation(LOGIN);
+
+    const login = async function() {
+
+      await loginMutation({
+        email: this.email,
+        password: this.password,
+      }).then(({ data, loading, error}) => {
+        if (error) {
+          console.error(`Err: ${error.message}`);
+          return;
+        }
+
+        localStorage.setItem("access_token", data.login.accessToken);
+        localStorage.setItem("refresh_token", data.login.refreshToken);
+
+        router.push('/');
+        console.log(data);
+      });
+    }
+    return { login, email, password };
   }
-};
+}
+
 </script>
   
   <style scoped>
