@@ -35,3 +35,37 @@ mutation login($email: String!, $password: String!) {
   }  
 `
 
+export const GET_ME = gql`
+query me($accessToken: String!) {
+    me(accessToken: $accessToken) {
+        id
+        username
+        name
+        lastName
+        school
+        email
+        role
+        createdAt
+        updatedAt
+        avatarUrl
+        achievments {
+            id
+            title
+            description
+        }
+    }
+}`
+
+export const POST_EDIT = gql`
+mutation edit($accessToken: String!, $school: String, $name: String, $lastName: String) {
+    edit(accessToken: $accessToken, name: $name, school: $school, lastName: $lastName) {
+      id
+      score
+      username
+      name
+      email
+      lastName
+  
+    }
+  }
+`
