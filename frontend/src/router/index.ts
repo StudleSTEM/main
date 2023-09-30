@@ -69,19 +69,15 @@ const routes = [
         component: About
       },
       {
-<<<<<<< HEAD
         path: '/uzdevumi/electricscheme',
         name: 'electricscheme',
         component: ElectricScheme
-=======
+      },
+      { 
         path: '/classroom',
         name: 'classroom',
         component: Classroom
->>>>>>> 19def488e9dfdc12f299f4ef5f0436addc8b7c06
-      }
-
       },
-
       {
         path: '/scienceteorija',
         name: 'scienceteorija',
