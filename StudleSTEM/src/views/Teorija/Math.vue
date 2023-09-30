@@ -1,11 +1,21 @@
-<script lang="ts" setup>
-  
+<script lang="ts">
+import NavBar from '@/components/NavBar.vue';
+export default{
+    components:{
+        NavBar,
+    }
+}
 </script>
 
 <template>
-    <h1></h1>
+<main>
+    <NavBar/>
+    <h1>Math Theory</h1>
+</main>
 </template>
 
 <style scoped>
-
+    #main{
+        margin-top: 6rem;
+    }
 </style>

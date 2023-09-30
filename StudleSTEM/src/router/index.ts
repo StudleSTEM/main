@@ -8,6 +8,14 @@ import Uzdevumi from '../views/Uzdevumi.vue';
 import Testi from '../views/Testi.vue';
 import Profils from '../views/Profils.vue';
 import About from '../views/About.vue';
+import Classroom from '../views/Classroom.vue';
+
+import ScienceT from '../views/Teorija/Science.vue';
+import MathT from '../views/Teorija/Math.vue';
+import EngeneeringT from '../views/Teorija/Engineering.vue';
+import TechnologyT from '../views/Teorija/Technology.vue';
+
+
 
 
 import ElectricScheme from '../views/Tasks/Electric/Electric_Scheme.vue';
@@ -61,11 +69,40 @@ const routes = [
         component: About
       },
       {
+<<<<<<< HEAD
         path: '/uzdevumi/electricscheme',
         name: 'electricscheme',
         component: ElectricScheme
+=======
+        path: '/classroom',
+        name: 'classroom',
+        component: Classroom
+>>>>>>> 19def488e9dfdc12f299f4ef5f0436addc8b7c06
       }
 
+      },
+
+      {
+        path: '/scienceteorija',
+        name: 'scienceteorija',
+        component: ScienceT
+      },
+
+      {
+        path: '/mathematicsteorija',
+        name: 'mathematicsteorija',
+        component: MathT
+      },
+      {
+        path: '/engeneeringteorija',
+        name: 'engeneeringteorija',
+        component: EngeneeringT
+      },
+      {
+        path: '/technologyteorija',
+        name: 'technologyteorija',
+        component: TechnologyT
+      }
     ],
   },
 ]
