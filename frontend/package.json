@@ -9,6 +9,7 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.4",
     "@mdi/font": "7.0.96",
     "@vue/apollo-composable": "^4.0.0-beta.11",
     "collision-typescript": "^1.0.5",

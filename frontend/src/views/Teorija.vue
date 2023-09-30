@@ -1,40 +1,107 @@
 <template>
+  <div class="themed-images">
      <div class="card-container">
          <div class="card science">
           <h2>Science</h2>
-            <div class="button-container">
+            <div class="button-container" id="sciencecard">
               <router-link to="/scienceteorija"> <button id="s-button"><p>Start</p></button></router-link>
             </div>
          </div>
-         <div class="card technology"> 
+         <div class="card technology" id="techcard"> 
           <h2>Technology</h2>
             <div class="button-container">
               <router-link to="/technologyteorija"><button id="t-button"><p>Start</p></button></router-link>
             </div>
          </div>
-         <div class="card engineering">
+         <div class="card engineering" id="engineer">
           <h2>Engineering</h2>
             <div class="button-container">
               <router-link to="/engeneeringteorija"><button id="e-button"><p>Start</p></button></router-link>
             </div>
          </div>
-         <div class="card mathematics">
+         <div class="card mathematics" id="math">
           <h2>Mathematics</h2>
             <div class="button-container">
               <router-link to="/mathematicsteorija"><button id="m-button"><p>Start</p></button></router-link>
             </div>
          </div>
      </div>
+    </div>
  </template>
  
+ <script lang="ts">
+</script>
  
  <style scoped>
 
     h2{
       height: 5rem;
-      left: 2rem;
+      font-size: 2rem;
       position: relative;
+      top: 12rem;
+      display: none;
     }
+
+    a{
+      text-decoration: none;
+    }
+    .science{
+      background-image: url('../assets/scientist.jpg') ;
+      background-size: cover;
+      filter: brightness(50%);
+    }
+
+    .science:hover{
+      transform: scale(1.02);
+      filter: brightness(100%);
+    }
+
+    .technology{
+      background-image:url('../assets/technology_blueprints.jpg');
+      background-size: cover ;
+      filter: brightness(50%);
+    }
+
+    .technology:hover{
+      transform: scale(1.02);
+      filter: brightness(100%);
+    }
+
+    .engineering{
+      background-image: url('../assets/engineering.jpg');
+      background-size: cover;
+      filter: brightness(50%);
+    }
+
+    .engineering:hover{
+      transform: scale(1.02);
+      filter: brightness(100%);
+    }
+
+    .mathematics{
+      background-image:url('../assets/mathematical_equations.jpg');
+      background-size: cover;
+      filter: brightness(50%);
+    }
+
+    .mathematics:hover{
+      transform: scale(1.02);
+      filter: brightness(100%);
+    }
+
+
+    .themed-images{
+      width: 100vw;
+      height: 100vh;
+    }
+    img{
+      position: relative;
+      width: 30rem;
+      height: 50rem;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
 
   body,html{
     background-color: var(--background-color);
@@ -47,10 +114,22 @@
     position: relative;
     border-radius: 25px;
     color: white;
-    transition: 0.1s; 
+    transition: 0.1s;
+    display: none;
+    font-size: 1.5rem; 
+    text-decoration: none;
 }
   .card{
     border-radius: 25px;
+    margin: 2rem;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .card:hover button, h2{
+    display: block;
   }
 
   button:hover{
@@ -60,12 +139,15 @@
 .button-container{
   width: 20rem;
   height: 20rem;
-  position: relative;
+  position: absolute;
   justify-content: center;
   align-content: center;
   display: flex;
   top: 27rem;
-  left: -3.5rem;
+}
+
+.card-container{
+  left: 10rem;
 }
 
 
@@ -78,8 +160,9 @@
          justify-content: center;
          align-content: center;
          flex-direction: row;
-         position: relative;
+         position: absolute;
          top: 10rem;
+         left: 16.5rem;
      }
      .card{
          width: 20rem;
@@ -98,7 +181,7 @@
          justify-content: center;
          align-content: center;
          flex-direction: row;
-         position: relative;
+
          top: 10rem;
      }
      .card{
@@ -107,7 +190,6 @@
          background-color: var(--secondary-color);
          display: inline-flex;
          margin: 1rem;
-         position: relative;
          color: white;         
      }
 
@@ -123,7 +205,6 @@
          justify-content: center;
          align-content: center;
          flex-direction: row;
-         position: relative;
          top: 10rem;
      }
      .card{
@@ -148,7 +229,6 @@
          justify-content: center;
          align-content: center;
          flex-direction: row;
-         position: relative;
          top: 10rem;
      }
      .card{
@@ -163,6 +243,6 @@
      }
 
  
-     } 
+} 
  
  </style>

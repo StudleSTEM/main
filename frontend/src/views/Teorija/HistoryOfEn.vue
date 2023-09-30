@@ -1,8 +1,8 @@
 <template>
     <div class="main">
-        <h1>History Of Engineering</h1>
         <div class="text-container">
-            <h2>Engineering</h2> <p>has existed since ancient times, when humans devised inventions such as the wedge, lever, wheel and pulley, etc.
+            <h2>History Of Engineering</h2>
+            <p>has existed since ancient times, when humans devised inventions such as the wedge, lever, wheel and pulley, etc.
 
 The term engineering is derived from the word engineer, which itself dates back to the 14th century when an engine'er (literally, one who builds or operates a siege engine) referred to "a constructor of military engines". In this context, now obsolete, an "engine" referred to a military machine, i.e., a mechanical contraption used in war (for example, a catapult). Notable examples of the obsolete usage which have survived to the present day are military engineering corps, e.g., the U.S. Army Corps of Engineers.
 
@@ -31,8 +31,8 @@ Later, as the design of civilian structures, such as bridges and buildings, matu
         display: flex;
     }
     .text-container{
-        width: 100rem;
-        height: 32rem;
+        width: 80vw;
+        height: 70vh;
         background-color: var(--secondary-color);
         position: absolute;
         top:10rem;
@@ -46,16 +46,50 @@ Later, as the design of civilian structures, such as bridges and buildings, matu
         background-color: var(--accent-color-two) ;
         width: 8rem;
         height: 2rem;
-        position: relative;
+        position: absolute;
         border-radius: 25px;
         color: white;
         transition: 0.1s; 
-        top: 25rem;
     }
     
     button:hover{
         transform: scale(1.1);
       }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            button{
+                top:26rem ;
+            }
+        }
+          
+        /* Media Query for low resolution  Tablets, Ipads */
+        @media (min-width: 481px) and (max-width: 767px) {
+            button{
+                top:28rem;
+            }
+        }
+          
+        /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1024px){
+            button{
+                top: 30rem ;
+            }
+        }
+          
+        /* Media Query for Laptops and Desktops */
+        @media (min-width: 1025px) and (max-width: 1280px){
+            button{
+                top: 36rem ;
+            }
+        }
+          
+        /* Media Query for Large screens */
+        @media (min-width: 1281px) {
+            button{
+                top: 38rem;
+            }
+        }
     
     </style>
     

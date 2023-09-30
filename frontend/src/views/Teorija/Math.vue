@@ -11,9 +11,12 @@
     <div class="list-container">
         <div class="card">
             <ul>
-                <router-link to="/division"><li><a><h2>Division</h2></a></li></router-link>
-                <router-link to="/pythagoras-theory"><li><a><h2>Pythagoras Theory</h2></a></li></router-link>
-                
+                <div class="good">
+                    <router-link to="/division"><li><a><h2>Division</h2></a></li></router-link>
+                </div>
+                <div class="good2">
+                    <router-link to="/pythagoras-theory"><li><a><h2>Pythagoras Theory</h2></a></li></router-link>
+                </div>
             </ul>
             <div class="button-container">
         <router-link to="/teorija"><button>Return</button></router-link>
@@ -26,7 +29,8 @@
 </template>
 
 <style scoped>
-    h1,h2{
+
+h1,h2{
         color: white;
     }
     button{
@@ -39,31 +43,10 @@
     transition: 0.1s; 
 }
 
-button:hover{
-    transform: scale(1.1);
-  }
-  .button-container{
-    width: 40rem;
-    height: 30rem;
-    position: absolute;
-    top: 26rem;
-  }
-  
-    .list-container{
-        display: flex;
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        top: 5rem;
-        justify-content: center;
-        align-content: center;
-    }
 
-    .container{
-        width: 100vw;
-        height: 100vh;
-    }
-    .header-container{
+
+
+.header-container{
         width: 100vw;
         height: 10vh;
         background-color: var(--secondary-color);
@@ -71,12 +54,46 @@ button:hover{
         padding-top:1.2rem;
     }
 
+.list-container{
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        top: 5rem;
+        justify-content: center;
+        align-content: center;
+        
+    }
+
+    .good{
+    width: 20rem;
+    height: 3rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.3rem;
+    margin: 2rem;
+  }
+  .good2{
+    width: 20rem;
+    height: 3rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 0.3rem;
+    margin: 2rem;
+  }
+  .container{
+        width: 100vw;
+        height: 100vh;
+    }
     .card{
-        width: 40rem;
-        height: 30rem;
+        width: 80vw;
+        height: 80vh;
         background-color: var(--secondary-color) ;
         border-radius: 25px;
         padding: 2rem;
     }
+
+button:hover{
+    transform: scale(1.1);
+  }
+
 
 </style>
