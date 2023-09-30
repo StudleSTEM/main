@@ -7,7 +7,7 @@
         <router-link to="/teorija" id="button" class="weight-regular height-regular">Theory</router-link>
         <router-link to="/uzdevumi" id="button" class="weight-regular height-regular">Tasks</router-link>
         <router-link to="/testi" id="button" class="weight-regular height-regular">Tests</router-link>
-        <router-link to="/profils" id="button" class="weight-regular height-regular">Profile</router-link>
+        <router-link to="/profile" id="button" class="weight-regular height-regular">Profile</router-link>
     </div>
     
 </template>

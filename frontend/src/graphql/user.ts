@@ -1,4 +1,3 @@
-import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 
 export const GET_USER = gql`
@@ -7,6 +6,11 @@ export const GET_USER = gql`
       id
       name
       username
+      lastName
+      email
+      school
+      score
+      avatarUrl
     }
   }
 `;

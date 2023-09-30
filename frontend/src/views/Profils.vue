@@ -1,4 +1,10 @@
 <template>
+      <p v-if="error">you are not in this classroom</p>
+      <p v-if="loading">Loading...</p>
+      <div v-else>
+         {{ result }}
+      </div>
+      <button @click="logOut">Logout</button>
   <div class="profile">
     <div class="profile-photo">
       <img :src="profileData.photo" alt="Profile Photo" @click="uploadPhoto">
@@ -40,6 +46,10 @@
 </template>
 
 <script>
+
+import { useQuery } from '@vue/apollo-composable'
+import { GET_ME } from "../graphql/user";
+import { useRouter } from 'vue-router'
 export default {
   data() {
     return {
@@ -86,7 +96,25 @@ export default {
       // Update the profile data with edited data
       this.profileData = { ...this.editedProfileData };
       this.isEditing = false;
+    },
+    logOut() {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      const router = useRouter();
+      router.push('/login');
     }
+
+  },
+  setup () {
+
+      
+      const { result, loading, error } = useQuery(GET_ME, { accessToken: localStorage.getItem("access_token") } );
+
+      console.log(result)
+
+      return {
+        result, error, loading
+      }
   }
 };
 </script>
