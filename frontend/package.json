@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+<<<<<<< HEAD
     "@vueuse/gesture": "^2.0.0-beta.1",
+=======
+    "@vue/apollo-composable": "^4.0.0-beta.11",
+>>>>>>> b6aa98e71684377d5466798d838b81201fbbebd5
     "collision-typescript": "^1.0.5",
     "core-js": "^3.29.0",
     "pinia": "^2.0.0",

@@ -1,5 +1,4 @@
 <template>
-    <NavBar />
     <div class="parent">
         <div class="container">
             <div class="header">
@@ -10,10 +9,7 @@
     </div>
     </template>
     
-    <script lang="ts" setup>
-        import NavBar from '../components/NavBar.vue';
-    </script>
-    
+   
     <style scoped>
             h1{
                 font-size: 3.5rem;
