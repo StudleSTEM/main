@@ -33,7 +33,6 @@ import TechnologyTestsVue from "@/views/Tsts/TechnologyTests.vue";
 import EngineeringTestsVue from "@/views/Tsts/EngineeringTests.vue";
 import MathematicsTestsVue from "@/views/Tsts/MathematicsTests.vue";
 
-
 import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
 import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
 import { REFRESH, GET_ME } from "../graphql/user";
@@ -72,6 +71,8 @@ async function isLoggedIn() {
       return true;
     } catch (error) {
       console.log("2 false");
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
       return false;
     }
   }
@@ -173,7 +174,7 @@ const routes = [
         name: "register",
         component: register,
         beforeEnter: async (to: any, from: any, next: any) => {
-          if (await !isLoggedIn()) {
+          if ((await !isLoggedIn()) || !localStorage.getItem("access_token")) {
             next();
           } else {
             next("/");
@@ -266,44 +267,44 @@ const routes = [
         redirect: "/",
       },
       {
-        path:"/engineering-tasks",
-        name:"engineering-tasks",
-        component: EngineerungTasksVue
+        path: "/engineering-tasks",
+        name: "engineering-tasks",
+        component: EngineerungTasksVue,
       },
       {
         path: "/mathematics-tasks",
         name: "mathematics-tasks",
-        component: MathematicsTasksVue
+        component: MathematicsTasksVue,
       },
       {
-        path:"/science-tasks",
-        name:"science-tasks",
-        component: ScienceTasksVue
+        path: "/science-tasks",
+        name: "science-tasks",
+        component: ScienceTasksVue,
       },
       {
-        path:"/technology-tasks",
+        path: "/technology-tasks",
         name: "technology-tasks",
-        component: TechnologyTasksVue
+        component: TechnologyTasksVue,
       },
       {
         path: "/science-tests",
         name: "science-tests",
-        component: ScienceTestsVue
+        component: ScienceTestsVue,
       },
       {
-        path:"/technology-tests",
-        name:"technology-tests",
-        component: TechnologyTestsVue
+        path: "/technology-tests",
+        name: "technology-tests",
+        component: TechnologyTestsVue,
       },
       {
-        path:"/engineering-tests",
+        path: "/engineering-tests",
         name: "engineering-tests",
-        component: EngineeringTestsVue
+        component: EngineeringTestsVue,
       },
       {
-        path:"/mathematics-tests",
+        path: "/mathematics-tests",
         name: "mathematics-tests",
-        component: MathematicsTestsVue
+        component: MathematicsTestsVue,
       },
     ],
   },

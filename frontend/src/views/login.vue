@@ -132,21 +132,15 @@ export default {
 
 .company-name {
   text-align: center;
-  margin-top: 100px;
 }
 
 .company-name h1 {
-
   color: #173744;
   font-size: 48px;
 }
 
 .register-button {
   margin-top: 1vh;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
   text-decoration: underline;
 }
 

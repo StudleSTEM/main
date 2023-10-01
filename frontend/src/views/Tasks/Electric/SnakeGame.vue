@@ -1,9 +1,11 @@
 <!-- SnakeGame.vue -->
 <template>
+  <h1 id="name">Snake</h1>
     <div id="container">
-        <h1>Snake</h1>
       <canvas ref="snakeCanvas"></canvas>
     </div>
+    <h2>Now that you answered the question right you get a reward! To play the snake game you just made with word blocks. (WASD as controls)</h2>
+    <router-link to="/"><div id="aaaa"><f>Go back home</f></div></router-link>
   </template>
   
   <script lang="ts">
@@ -91,16 +93,16 @@
         }
       },
       changeDirection(e) {
-        if (e.code === "ArrowUp" && this.velocityY !== 1) {
+        if (e.code === "KeyW" && this.velocityY !== 1) {
           this.velocityX = 0;
           this.velocityY = -1;
-        } else if (e.code === "ArrowDown" && this.velocityY !== -1) {
+        } else if (e.code === "KeyS" && this.velocityY !== -1) {
           this.velocityX = 0;
           this.velocityY = 1;
-        } else if (e.code === "ArrowLeft" && this.velocityX !== 1) {
+        } else if (e.code === "KeyA" && this.velocityX !== 1) {
           this.velocityX = -1;
           this.velocityY = 0;
-        } else if (e.code === "ArrowRight" && this.velocityX !== -1) {
+        } else if (e.code === "KeyD" && this.velocityX !== -1) {
           this.velocityX = 1;
           this.velocityY = 0;
         }
@@ -126,6 +128,58 @@
   </script>
   
   <style scoped>
+    #container{   
+      display: flex;
+      margin-top: 7rem;
+      position: absolute;
+      left: 34vw;
+    }
 
+    #name{
+      position: absolute;
+      margin-top: 4rem;
+      left: 34vw;
+
+      height: 2rem;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2{
+      position: absolute;
+      width: 500px;
+      margin-top: 40rem;
+      left: 34vw;
+    }
+
+    #aaaa{
+      display:flex;
+      justify-content: center;
+      align-items:center ;
+      height: 2rem;
+      width: 500px;
+      left: 34vw;
+      position: absolute;
+    }
+
+    f{ 
+      height: 2rem;
+      width: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+
+      padding: 0.25rem 0.5rem 0.25rem;
+
+      position: absolute;
+      top: 48rem;
+      background: var(--secondary-color);
+
+      color: var(--background-color);
+
+    }
   </style>
   

@@ -1,48 +1,67 @@
 <template>
-      <p v-if="error">you are not in this classroom</p>
-      <p v-if="loading">Loading...</p>
-      <div v-else>
-         {{ result }}
+  <p v-if="error">{{error}}</p>
+  <p v-if="loading">Loading...</p>
+  <div v-else>
+    <div class="profile">
+      <div class="profile-photo">
+        <img :src="result.me.avatarUrl" alt="Profile Photo">
       </div>
-      <button @click="logOut">Logout</button>
-  <div class="profile">
-    <div class="profile-photo">
-      <img :src="profileData.photo" alt="Profile Photo" @click="uploadPhoto">
-      <input type="file" ref="photoInput" style="display: none" @change="handlePhotoChange">
+      <div class="info">
+        <div class="info-item">
+          <strong>Name:</strong>
+          <span v-if="!isEditing">{{ result.me.name }}</span>
+          <input v-else v-model="editedProfileData.name" placeholder="Enter your name" />
+        </div>
+        <div class="info-item">
+          <strong>Grade:</strong>
+          <span v-if="!isEditing">{{ result.me.class }}</span>
+          <input v-else v-model="editedProfileData.grade" placeholder="Enter your grade" />
+        </div>
+        <div class="info-item">
+          <strong>School:</strong>
+          <span v-if="!isEditing">{{ result.me.school }}</span>
+          <input v-else v-model="editedProfileData.school" placeholder="Enter your school" />
+        </div>
+        <div class="info-item">
+          <strong>Email:</strong>
+          <span v-if="!isEditing">{{ result.me.email }}</span>
+          <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
+        </div>
+        <div class="butons">
+          <!-- <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
+          <button v-else @click="saveChanges">Save Changes</button> -->
+          <button @click="logOut">Logout</button>
+        </div>
+        
+
+      </div>
     </div>
-    <div class="info">
-      <div class="info-item">
-        <strong>Name:</strong>
-        <span v-if="!isEditing">{{ profileData.name }}</span>
-        <input v-else v-model="editedProfileData.name" placeholder="Enter your name" />
-      </div>
-      <div class="info-item">
-        <strong>Grade:</strong>
-        <span v-if="!isEditing">{{ profileData.grade }}</span>
-        <input v-else v-model="editedProfileData.grade" placeholder="Enter your grade" />
-      </div>
-      <div class="info-item">
-        <strong>School:</strong>
-        <span v-if="!isEditing">{{ profileData.school }}</span>
-        <input v-else v-model="editedProfileData.school" placeholder="Enter your school" />
-      </div>
-      <div class="info-item">
-        <strong>Email:</strong>
-        <span v-if="!isEditing">{{ profileData.email }}</span>
-        <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
-      </div>
-      <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
-      <button v-else @click="saveChanges">Save Changes</button>
-    </div>
-    <div class="grades">
-      <h3>Grades:</h3>
+    <div>
+      achievments:
+
       <ul>
-        <li v-for="(grade, subject) in profileData.grades" :key="subject">
-          <strong>{{ subject }}:</strong> {{ grade }}
+        <li v-for="achievment in result.me.achievments" v-bind:key="achievment.id">
+          {{ achievment.title }}:
+          {{ achievment.description }}
         </li>
       </ul>
+
+    </div>
+
+    <div>
+      rooms:
+
+      <ul>
+        <li v-for="room in result.me.rooms" v-bind:key="room.id">
+          <router-link :to="roomPath(room.id)" id="button" class="weight-regular height-regular">  {{ room.name }}:
+          {{ room.id }}</router-link>
+        
+        </li>
+      </ul>
+
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -72,9 +91,10 @@ export default {
     };
   },
   methods: {
-    uploadPhoto() {
-      this.$refs.photoInput.click();
+    roomPath(roomId) {
+     return `/room/${roomId}`;
     },
+    
     handlePhotoChange(event) {
       const file = event.target.files[0];
       if (file) {
@@ -135,6 +155,14 @@ export default {
   margin-right: 20px;
 }
 
+.butons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  flex-direction: row;
+}
+
 .profile .profile-photo img {
   width: 100px;
   height: 100px;
@@ -178,7 +206,7 @@ export default {
   margin-right: 5px;
 }
 
-.profile button {
+button {
   padding: 10px 20px;
   margin-top: 10px;
   font-size: 1em;
@@ -189,11 +217,11 @@ export default {
   color: #fff; /* Белый текст */
 }
 
-.profile button:hover {
+button:hover {
   background-color: #006400; /* Темно-зелёный при наведении */
 }
 
-.profile button:focus {
+button:focus {
   outline: none;
 }
 
