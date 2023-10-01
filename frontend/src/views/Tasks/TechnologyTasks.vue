@@ -8,7 +8,7 @@
         <div class="task-box">
             <h1>Interactive Technology Tasks</h1>
             <ul>
-                <router-link to="/uzdevumi/electricscheme"><li><a><h2>Electric Scheme</h2></a></li></router-link>
+                <router-link to="/uzdevumi/electricscheme"><li><a><h2>Snake Game</h2></a></li></router-link>
             </ul>
         </div>
     </div>
