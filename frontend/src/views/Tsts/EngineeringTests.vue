@@ -6,6 +6,7 @@
     <div class="task-container">
         <div class="task-box">
             <h1>Interactive Engineering Tests</h1>
+            <button> Add task </button>
             <ul>
                 <li><a><h2>Test 1</h2></a></li>
             </ul>

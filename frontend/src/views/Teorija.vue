@@ -138,7 +138,7 @@
   
 .button-container{
   width: 20rem;
-  height: 20rem;
+  height: 3rem;
   position: absolute;
   justify-content: center;
   align-content: center;
