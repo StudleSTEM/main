@@ -11,10 +11,14 @@
       <ul class="list">
         <li v-for="task in doneTasks" @click="markAsUndone(task)">{{ task.name }}</li>
       </ul>
+
+      <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
+      <h2 id="txt">Your task is to arrange the given parts of code in a correct order to unlock what you made by doing this task aka a reward (click on the dark blue rectangles to move them from one container to another)</h2>
     </div>
     
+    
     <!-- Add the button here -->
-    <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
+    
   </div>
 </template>
 
@@ -118,5 +122,11 @@ export default {
   color: var(--background-color);
   border-radius: 1rem;
 
+}
+
+#txt{
+  top: 48vh;
+  position: absolute;
+  left: 1vh;
 }
 </style>

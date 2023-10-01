@@ -45,6 +45,7 @@
       font-size: 2rem;
       position: relative;
       top: 12rem;
+      color: var(--background-color);
     }
 
     h3{
@@ -52,7 +53,7 @@
       font-size: 2rem;
       position: relative;
       top: 16rem;
-      color: var(--accent-color);
+      color: var(--background-color);
     }
     
 
@@ -165,7 +166,7 @@
   
 .button-container{
   width: 20rem;
-  height: 20rem;
+  height: 2rem;
   position: absolute;
   justify-content: center;
   align-content: center;
