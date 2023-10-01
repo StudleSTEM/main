@@ -12,6 +12,7 @@
 
 .footer {
   position: fixed;
+  z-index: -10;
   bottom: 0;
   width: 100%;
   text-align: center;
