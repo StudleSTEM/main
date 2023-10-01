@@ -167,7 +167,6 @@
 .button-container{
   width: 20rem;
   height: 2rem;
-  height: 3rem;
   position: absolute;
   justify-content: center;
   align-content: center;
