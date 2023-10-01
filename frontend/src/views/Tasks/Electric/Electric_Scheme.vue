@@ -1,21 +1,21 @@
 <template>
-  <div id="container">
+<div id="container">
+  <div class="box-container">
     <div class="column">
       <h2>Tasks</h2>
       <ul class="list">
         <li v-for="task in tasks" @click="markAsDone(task)">{{ task.name }}</li>
       </ul>
-    </div>
-    <div class="column">
       <h2>Done Tasks</h2>
       <ul class="list">
         <li v-for="task in doneTasks" @click="markAsUndone(task)">{{ task.name }}</li>
       </ul>
     </div>
+  </div>
+</div>
     
     <!-- Add the button here -->
     <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
-  </div>
 </template>
 
 <script lang="ts">
@@ -60,6 +60,13 @@ export default {
 </script>
 
 <style scoped>
+
+.box-container{
+  position: absolute;
+  width: 40vw;
+  height: 50vh;
+  top: 20vh;
+}
 .column {
   float: left;
   width: 40vw;
@@ -69,11 +76,9 @@ export default {
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 1rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background: var(--accent-color);
 }
 
@@ -108,15 +113,13 @@ export default {
 
 #button{
   position: absolute;
-  top: 44vh;
-  left: 42vw;
-
+  top: 37vh;
+  left: 46vw;
   height: 2rem;
   width: auto;
   padding: 0.25rem 0.75rem 0.25rem;
   background: var(--secondary-color);
   color: var(--background-color);
   border-radius: 1rem;
-
 }
 </style>
