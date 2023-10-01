@@ -11,6 +11,7 @@ export const GET_USER = gql`
       school
       score
       avatarUrl
+      class
       achievments {
         id
         title
@@ -81,6 +82,7 @@ export const GET_ME = gql`
       school
       email
       role
+      class
       createdAt
       updatedAt
       avatarUrl
