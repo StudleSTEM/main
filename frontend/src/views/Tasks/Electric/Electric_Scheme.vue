@@ -1,12 +1,11 @@
 <template>
-  <div id="container">
+<div id="container">
+  <div class="box-container">
     <div class="column">
       <h2>Tasks</h2>
       <ul class="list">
         <li v-for="task in tasks" @click="markAsDone(task)">{{ task.name }}</li>
       </ul>
-    </div>
-    <div class="column">
       <h2>Done Tasks</h2>
       <ul class="list">
         <li v-for="task in doneTasks" @click="markAsUndone(task)">{{ task.name }}</li>
@@ -15,11 +14,11 @@
       <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
       <h2 id="txt">Your task is to arrange the given parts of code in a correct order to unlock what you made by doing this task aka a reward (click on the dark blue rectangles to move them from one container to another)</h2>
     </div>
-    
-    
-    <!-- Add the button here -->
-    
   </div>
+</div>
+    
+
+    <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
 </template>
 
 <script lang="ts">
@@ -64,6 +63,13 @@ export default {
 </script>
 
 <style scoped>
+
+.box-container{
+  position: absolute;
+  width: 40vw;
+  height: 50vh;
+  top: 20vh;
+}
 .column {
   float: left;
   width: 40vw;
@@ -73,11 +79,9 @@ export default {
   margin-left: 5vw;
   margin-right: 5vw;
   border-radius: 1rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background: var(--accent-color);
 }
 
@@ -112,16 +116,14 @@ export default {
 
 #button{
   position: absolute;
-  top: 44vh;
-  left: 42vw;
-
+  top: 37vh;
+  left: 46vw;
   height: 2rem;
   width: auto;
   padding: 0.25rem 0.75rem 0.25rem;
   background: var(--secondary-color);
   color: var(--background-color);
   border-radius: 1rem;
-
 }
 
 #txt{

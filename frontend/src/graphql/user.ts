@@ -91,6 +91,10 @@ export const GET_ME = gql`
         title
         description
       }
+      rooms {
+        id
+        name
+      }
     }
   }
 `;
