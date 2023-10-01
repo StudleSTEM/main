@@ -3,24 +3,28 @@
      <div class="card-container">
          <div class="card science">
           <h2>Science</h2>
+          <h3>Tasks</h3>
             <div class="button-container" id="sciencecard">
               <router-link to="/science-tasks"> <button id="s-button"><p>Start</p></button></router-link>
             </div>
          </div>
          <div class="card technology" id="techcard"> 
           <h2>Technology</h2>
+          <h3>Tasks</h3>
             <div class="button-container">
               <router-link to="/technology-tasks"><button id="t-button"><p>Start</p></button></router-link>
             </div>
          </div>
          <div class="card engineering" id="engineer">
           <h2>Engineering</h2>
+          <h3>Tasks</h3>
             <div class="button-container">
               <router-link to="/engineering-tasks"><button id="e-button"><p>Start</p></button></router-link>
             </div>
          </div>
          <div class="card mathematics" id="math">
           <h2>Mathematics</h2>
+          <h3>Tasks</h3>
             <div class="button-container">
               <router-link to="/mathematics-tasks"><button id="m-button"><p>Start</p></button></router-link>
             </div>
@@ -42,6 +46,15 @@
       position: relative;
       top: 12rem;
     }
+
+    h3{
+      height: 2rem;
+      font-size: 2rem;
+      position: relative;
+      top: 16rem;
+      color: var(--accent-color);
+    }
+    
 
     body{
       background-color: var(--accent-color);
@@ -131,6 +144,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    color: var(--accent-color);
   }
 
   .card:hover button{
@@ -139,7 +153,10 @@
   }
 
   .card:hover h2{
-    color: var(--accent-color);
+    color: white;
+  }
+  .card:hover h3{
+    color: white;
   }
 
   button:hover{
@@ -186,7 +203,6 @@
          display: inline-flex;
          margin: 1rem;
          position: relative;
-         color: white;
      }
 
 
@@ -205,8 +221,7 @@
          height: 30rem;
          background-color: var(--secondary-color);
          display: inline-flex;
-         margin: 1rem;
-         color: white;         
+         margin: 1rem;        
      }
 
  
@@ -232,7 +247,6 @@
          display: inline-flex;
          margin: 1rem;
          position: relative;
-         color: white;
      }
 
 
@@ -257,8 +271,6 @@
          display: inline-flex;
          margin: 1rem;
          position: relative;
-         color: white;
-         z-index: 1;
      }
 
  

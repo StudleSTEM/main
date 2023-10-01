@@ -28,6 +28,11 @@ import EngineerungTasksVue from "@/views/Tasks/EngineerungTasks.vue";
 import MathematicsTasksVue from "@/views/Tasks/MathematicsTasks.vue";
 import ScienceTasksVue from "@/views/Tasks/ScienceTasks.vue";
 import TechnologyTasksVue from "@/views/Tasks/TechnologyTasks.vue";
+import ScienceTestsVue from "@/views/Tsts/ScienceTests.vue";
+import TechnologyTestsVue from "@/views/Tsts/TechnologyTests.vue";
+import EngineeringTestsVue from "@/views/Tsts/EngineeringTests.vue";
+import MathematicsTestsVue from "@/views/Tsts/MathematicsTests.vue";
+
 
 import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
 import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
@@ -279,6 +284,26 @@ const routes = [
         path:"/technology-tasks",
         name: "technology-tasks",
         component: TechnologyTasksVue
+      },
+      {
+        path: "/science-tests",
+        name: "science-tests",
+        component: ScienceTestsVue
+      },
+      {
+        path:"/technology-tests",
+        name:"technology-tests",
+        component: TechnologyTestsVue
+      },
+      {
+        path:"/engineering-tests",
+        name: "engineering-tests",
+        component: EngineeringTestsVue
+      },
+      {
+        path:"/mathematics-tests",
+        name: "mathematics-tests",
+        component: MathematicsTestsVue
       },
     ],
   },
