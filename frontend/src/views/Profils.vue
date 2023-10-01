@@ -4,8 +4,7 @@
   <div v-else>
     <div class="profile">
       <div class="profile-photo">
-        <img :src="result.me.avatarUrl" alt="Profile Photo" @click="uploadPhoto">
-        <input type="file" ref="photoInput" style="display: none" @change="handlePhotoChange">
+        <img :src="result.me.avatarUrl" alt="Profile Photo">
       </div>
       <div class="info">
         <div class="info-item">
@@ -28,8 +27,13 @@
           <span v-if="!isEditing">{{ result.me.email }}</span>
           <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
         </div>
-        <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
-        <button v-else @click="saveChanges">Save Changes</button>
+        <div class="butons">
+          <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
+          <button v-else @click="saveChanges">Save Changes</button>
+          <button @click="logOut">Logout</button>
+        </div>
+        
+
       </div>
     </div>
     <div>
@@ -44,7 +48,6 @@
 
     </div>
   </div>
-  <button @click="logOut">Logout</button>
   
 </template>
 
@@ -75,9 +78,7 @@ export default {
     };
   },
   methods: {
-    uploadPhoto() {
-      this.$refs.photoInput.click();
-    },
+    
     handlePhotoChange(event) {
       const file = event.target.files[0];
       if (file) {
@@ -138,6 +139,14 @@ export default {
   margin-right: 20px;
 }
 
+.butons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  flex-direction: row;
+}
+
 .profile .profile-photo img {
   width: 100px;
   height: 100px;
@@ -181,7 +190,7 @@ export default {
   margin-right: 5px;
 }
 
-.profile button {
+button {
   padding: 10px 20px;
   margin-top: 10px;
   font-size: 1em;
@@ -192,11 +201,11 @@ export default {
   color: #fff; /* Белый текст */
 }
 
-.profile button:hover {
+button:hover {
   background-color: #006400; /* Темно-зелёный при наведении */
 }
 
-.profile button:focus {
+button:focus {
   outline: none;
 }
 
