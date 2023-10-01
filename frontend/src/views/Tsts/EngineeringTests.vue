@@ -4,11 +4,10 @@
 
 <template>
     <div class="task-container">
-        
         <div class="task-box">
-            <h1>Interactive Technology Tasks</h1>
+            <h1>Interactive Engineering Tests</h1>
             <ul>
-                <router-link to="/uzdevumi/electricscheme"><li><a><h2>Electric Scheme</h2></a></li></router-link>
+                <li><a><h2>Test 1</h2></a></li>
             </ul>
         </div>
     </div>

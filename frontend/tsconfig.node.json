@@ -5,5 +5,10 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
+  "files": [
+    "src/views/Tsts/MathematicsTests.vue",
+    "src/views/Tsts/EngineeringTests.vue",
+    "src/views/Tsts/TechnologyTests.vue",
+  ],
   "include": ["vite.config.ts"]
 }
