@@ -24,6 +24,10 @@ import WhatIsTechnology from "@/views/Teorija/WhatIsTechnology.vue";
 import TechnologyImpact from "@/views/Teorija/TechnologyImpact.vue";
 import RoomView from "@/views/RoomView.vue";
 import UserView from "@/views/UserView.vue";
+import EngineerungTasksVue from "@/views/Tasks/EngineerungTasks.vue";
+import MathematicsTasksVue from "@/views/Tasks/MathematicsTasks.vue";
+import ScienceTasksVue from "@/views/Tasks/ScienceTasks.vue";
+import TechnologyTasksVue from "@/views/Tasks/TechnologyTasks.vue";
 
 import ElectricScheme from "../views/Tasks/Electric/Electric_Scheme.vue";
 import SnakeGame from "../views/Tasks/Electric/SnakeGame.vue";
@@ -255,6 +259,26 @@ const routes = [
       {
         path: "*",
         redirect: "/",
+      },
+      {
+        path:"/engineering-tasks",
+        name:"engineering-tasks",
+        component: EngineerungTasksVue
+      },
+      {
+        path: "/mathematics-tasks",
+        name: "mathematics-tasks",
+        component: MathematicsTasksVue
+      },
+      {
+        path:"/science-tasks",
+        name:"science-tasks",
+        component: ScienceTasksVue
+      },
+      {
+        path:"/technology-tasks",
+        name: "technology-tasks",
+        component: TechnologyTasksVue
       },
     ],
   },
