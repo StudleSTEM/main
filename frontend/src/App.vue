@@ -13,9 +13,7 @@
 <style lang="scss">
 @import 'styles/styles.scss';
 
-.klas {
-  margin-top: 3rem;
-}
+
 
 
 </style>
