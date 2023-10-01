@@ -28,8 +28,8 @@
           <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
         </div>
         <div class="butons">
-          <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
-          <button v-else @click="saveChanges">Save Changes</button>
+          <!-- <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
+          <button v-else @click="saveChanges">Save Changes</button> -->
           <button @click="logOut">Logout</button>
         </div>
         
@@ -43,6 +43,19 @@
         <li v-for="achievment in result.me.achievments" v-bind:key="achievment.id">
           {{ achievment.title }}:
           {{ achievment.description }}
+        </li>
+      </ul>
+
+    </div>
+
+    <div>
+      rooms:
+
+      <ul>
+        <li v-for="room in result.me.rooms" v-bind:key="room.id">
+          <router-link :to="roomPath(room.id)" id="button" class="weight-regular height-regular">  {{ room.name }}:
+          {{ room.id }}</router-link>
+        
         </li>
       </ul>
 
@@ -78,6 +91,9 @@ export default {
     };
   },
   methods: {
+    roomPath(roomId) {
+     return `/room/${roomId}`;
+    },
     
     handlePhotoChange(event) {
       const file = event.target.files[0];
