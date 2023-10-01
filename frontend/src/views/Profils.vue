@@ -1,48 +1,51 @@
 <template>
-      <p v-if="error">you are not in this classroom</p>
-      <p v-if="loading">Loading...</p>
-      <div v-else>
-         {{ result }}
+  <p v-if="error">{{error}}</p>
+  <p v-if="loading">Loading...</p>
+  <div v-else>
+    <div class="profile">
+      <div class="profile-photo">
+        <img :src="result.me.avatarUrl" alt="Profile Photo" @click="uploadPhoto">
+        <input type="file" ref="photoInput" style="display: none" @change="handlePhotoChange">
       </div>
-      <button @click="logOut">Logout</button>
-  <div class="profile">
-    <div class="profile-photo">
-      <img :src="profileData.photo" alt="Profile Photo" @click="uploadPhoto">
-      <input type="file" ref="photoInput" style="display: none" @change="handlePhotoChange">
+      <div class="info">
+        <div class="info-item">
+          <strong>Name:</strong>
+          <span v-if="!isEditing">{{ result.me.name }}</span>
+          <input v-else v-model="editedProfileData.name" placeholder="Enter your name" />
+        </div>
+        <div class="info-item">
+          <strong>Grade:</strong>
+          <span v-if="!isEditing">{{ result.me.class }}</span>
+          <input v-else v-model="editedProfileData.grade" placeholder="Enter your grade" />
+        </div>
+        <div class="info-item">
+          <strong>School:</strong>
+          <span v-if="!isEditing">{{ result.me.school }}</span>
+          <input v-else v-model="editedProfileData.school" placeholder="Enter your school" />
+        </div>
+        <div class="info-item">
+          <strong>Email:</strong>
+          <span v-if="!isEditing">{{ result.me.email }}</span>
+          <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
+        </div>
+        <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
+        <button v-else @click="saveChanges">Save Changes</button>
+      </div>
     </div>
-    <div class="info">
-      <div class="info-item">
-        <strong>Name:</strong>
-        <span v-if="!isEditing">{{ profileData.name }}</span>
-        <input v-else v-model="editedProfileData.name" placeholder="Enter your name" />
-      </div>
-      <div class="info-item">
-        <strong>Grade:</strong>
-        <span v-if="!isEditing">{{ profileData.grade }}</span>
-        <input v-else v-model="editedProfileData.grade" placeholder="Enter your grade" />
-      </div>
-      <div class="info-item">
-        <strong>School:</strong>
-        <span v-if="!isEditing">{{ profileData.school }}</span>
-        <input v-else v-model="editedProfileData.school" placeholder="Enter your school" />
-      </div>
-      <div class="info-item">
-        <strong>Email:</strong>
-        <span v-if="!isEditing">{{ profileData.email }}</span>
-        <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
-      </div>
-      <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
-      <button v-else @click="saveChanges">Save Changes</button>
-    </div>
-    <div class="grades">
-      <h3>Grades:</h3>
+    <div>
+      achievments:
+
       <ul>
-        <li v-for="(grade, subject) in profileData.grades" :key="subject">
-          <strong>{{ subject }}:</strong> {{ grade }}
+        <li v-for="achievment in result.me.achievments" v-bind:key="achievment.id">
+          {{ achievment.title }}:
+          {{ achievment.description }}
         </li>
       </ul>
+
     </div>
   </div>
+  <button @click="logOut">Logout</button>
+  
 </template>
 
 <script>
