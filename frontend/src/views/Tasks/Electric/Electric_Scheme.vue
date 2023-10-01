@@ -19,7 +19,7 @@
 </div>
     
 
-    <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
+    
 </template>
 
 <script lang="ts">
