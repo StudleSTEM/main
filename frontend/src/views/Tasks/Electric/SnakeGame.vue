@@ -1,9 +1,10 @@
 <!-- SnakeGame.vue -->
 <template>
+  <h1 id="name">Snake</h1>
     <div id="container">
-        <h1>Snake</h1>
       <canvas ref="snakeCanvas"></canvas>
     </div>
+    <h2>Now that you answered the question right you get a reward! To play the snake game you just made with word blocks. (Arrows as controls)</h2>
   </template>
   
   <script lang="ts">
@@ -126,6 +127,30 @@
   </script>
   
   <style scoped>
+    #container{   
+      display: flex;
+      margin-top: 7rem;
+      position: absolute;
+      left: 34vw;
+    }
 
+    #name{
+      position: absolute;
+      margin-top: 4rem;
+      left: 34vw;
+
+      height: 2rem;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2{
+      position: absolute;
+      width: 500px;
+      margin-top: 40rem;
+      left: 34vw;
+    }
   </style>
   

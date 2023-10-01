@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>To-Do List</h1>
+  <div id="container">
     <div class="column">
       <h2>Tasks</h2>
       <ul class="list">
@@ -15,7 +14,7 @@
     </div>
     
     <!-- Add the button here -->
-    <button @click="checkIdsAndNavigate">Check and Navigate</button>
+    <button id="button" @click="checkIdsAndNavigate">Check your answer</button>
   </div>
 </template>
 
@@ -63,11 +62,61 @@ export default {
 <style scoped>
 .column {
   float: left;
-  width: 25vw;
+  width: 40vw;
+  min-width: 16rem;
   padding: 15px;
+  min-height: 20rem;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--accent-color);
+}
+
+.list ul{
+  display: flex;
+  align-items: center;
+  
 }
 
 .list li {
   cursor: pointer;
+  width: 30vw;
+  min-height: 2rem;
+
+  background: var(--secondary-color);
+  margin: 0.25rem 0 0.25rem;
+  color: var(--background-color);
+  list-style-type: none;
+  border-radius: 1rem;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container{
+  margin-top: 3.5rem;
+  width: 100vw;
+  flex-direction: row;
+}
+
+#button{
+  position: absolute;
+  top: 44vh;
+  left: 42vw;
+
+  height: 2rem;
+  width: auto;
+  padding: 0.25rem 0.75rem 0.25rem;
+  background: var(--secondary-color);
+  color: var(--background-color);
+  border-radius: 1rem;
+
 }
 </style>
