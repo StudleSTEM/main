@@ -20,7 +20,7 @@
         <input type="text" id="lastname" v-model="lastname" class="reg-input" />
 
         
-        <button type="submit" class="reg-button" @click="login()">Register</button>
+        <button type="submit" class="reg-button" @click="register()">Register</button>
       </form>
       <button @click="goToLogin" class="login-button">Login</button>
     </div>
@@ -110,9 +110,9 @@ export default {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 35vw;
+  width: 400px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 70px;
 
   justify-content: center;
   align-content: center;
