@@ -57,6 +57,7 @@ async function isLoggedIn() {
       console.log("1 true");
       return true;
     } catch (error) {
+      localStorage.removeItem("access_token");
       console.log("1 false");
     }
   }

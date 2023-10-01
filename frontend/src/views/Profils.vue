@@ -28,8 +28,7 @@
           <input v-else v-model="editedProfileData.email" placeholder="Enter your email" />
         </div>
         <div class="butons">
-          <!-- <button v-if="!isEditing" @click="toggleEdit">Edit Profile</button>
-          <button v-else @click="saveChanges">Save Changes</button> -->
+       
           <button @click="logOut">Logout</button>
         </div>
         
